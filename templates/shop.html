@@ -1,0 +1,29 @@
+{% include "header.html" %}
+{% extends "main.html" %}
+{% block content %}
+	<div class="row">
+		<div class="col-md-6">
+			<div class = 'flash'>
+				{% with messages = get_flashed_messages() %}
+			      {% if messages %}
+			        <ul>
+			        {% for message in messages %}
+			            <li> <strong> {{ message }} </strong> </li>
+			        {% endfor %}
+			        </ul>
+			        {% endif %}
+			    {% endwith %}
+			</div>
+		</div>
+	</div>
+	{% for room in rooms %}
+		<a href = "{{url_for('showProducts', room_name=room.name)}}">
+			<div class="row">
+				<div class="col-md-12">
+					<h3>{{(room.name).replace("_", " ")}}</h3>
+				</div>
+			</div>
+		</a>
+	{% endfor %}
+{% endblock %}
+	

@@ -1,0 +1,52 @@
+body {
+	background-color: #7395AE;
+}
+.main_container {
+	background-color: white;
+	color: #5d5d61;
+	margin-top: 20px;
+}
+
+.flex {
+	display: flex;
+}
+
+.float-right{
+	float: right;
+
+}
+.headr {
+	background-color: #557A95;
+	color: white;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.items {
+	outline: 3px solid;
+	outline-offset: -3px;
+	outline-color: #557A95;
+	padding: 3px;
+}
+
+.max-w {
+	max-width: 80%;
+}
+
+.avatar {
+ 	border-radius: 50%;
+ 	margin-right: 5px;
+}
+
+/*These are to fix the login button on the bottom right of the div*/
+.rel {
+	position: relative;
+}
+
+.bottom-align-text {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+ }

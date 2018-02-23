@@ -1,0 +1,44 @@
+{% include "header.html" %}
+{% extends "main.html" %}
+{% block content %}
+<div class="row items">
+	<div class="col-md-6 col-md-offset-1">
+		<h2>{{user.name}}</h2>
+		<img src="{{user.picture}}" class="avatar" width="200">
+		<p><b>Email:</b>{{user.email}}</p>
+	</div>
+</div>
+{% for p in products %}
+	<div class="row items">
+		<div class="col-md-11 col-md-offset-1 padding-none">
+			<img src="{{p.image}}" width="200">
+			<h3>{{p.name}}</h3>
+			<p>User ID: {{p.user_id}}</p>
+			<p>Product ID: {{p.id}}</p>
+			<p>{{p.room}}</p>
+		</div>
+		<div class="col-md-11 col-md-offset-1 padding-none">
+			<div>
+				<p class="max-w">{{p.description}}</p>
+			<figure class="bottom-align-text">
+				<h4>Seller:</h4>
+				<img src="{{p.user_picture}}" class="avatar" width="80">
+				<figcaption> Price: €{{p.price}}</figcaption>
+			</figure>
+			</div>
+			{% if login_session['user_id'] == p.user_id %}
+				<a href="{{url_for('editProduct', product_id=p.id)}}">
+					<button type="submit" class="btn btn-default type="submit">
+						Edit
+					</button>
+				</a>
+				<a href = '{{url_for("deleteProduct", product_id=p.id)}}'>
+					<button class="btn btn-default delete">
+						Delete
+					</button>
+				</a>
+			{% endif %}
+		</div>
+	</div>
+{% endfor %}
+{% endblock %}

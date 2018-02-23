@@ -1,0 +1,15 @@
+{% include "header.html" %}
+{% extends "main.html" %}
+{% block content %}
+<div class="row">
+	<div class="col-md-6 col-md-offset-1">
+		<img src="{{product.image}}" width="200">
+		<h3>{{product.name}}</h3>
+		<p>{{product.description}}</p>
+		<p><b>Price:</b> €{{product.price}}</p>
+		<p><b>Product ID: </b>{{product.id}}</p>
+		<h4>Please contact the seller in order to complete the purchase.</h4>
+		<p><b>Seller email:</b>{{user.email}}</p>
+	</div>
+</div>
+{% endblock %}

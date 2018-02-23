@@ -1,0 +1,71 @@
+{% include "header.html" %}
+{% extends "main.html" %}
+{% block content %}
+	<div class="row">
+		<div class="col-md-6">
+			<h2>Edit Product</h2>
+			<h4>{{itemToEdit.name}}</h4>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 padding-top">
+			<form action="#" method = "post">
+				<div class="form-group">
+					<label for="name">Name:</label>
+					<input type ="text" maxlength="50" class="form-control" name="name" placeholder="{{itemToEdit.name}}">
+
+					<label for="image">ImageURL:</label>
+					<input type ="text" maxlength="250" class="form-control" name="image" placeholder="{{itemToEdit.image}}">
+
+					<label for="description">Description:</label>
+					<textarea class="form-control" maxlength="250" rows="3" name="description" placeholder="{{itemToEdit.description}}"></textarea>
+
+					<label for="price">Price:</label>
+					<div class="input-group">
+						<div class="input-group-addon">€</div>
+						<input type ="text" class="form-control" maxlength="10" name="price" placeholder="{{itemToEdit.price}}">
+					</div>
+					<label for="room">Room:</label>
+					<p>Current Room: {{itemToEdit.room}}</p>
+					<div class="radio">
+					  <label class="active">
+					  	<!-- Need to dynamically preselect current value with js?-->
+					    <input type="radio" name="room" id="Bathroom" value="Bathroom">Bathroom
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="room" id="Bedroom" value="Bedroom">Bedroom
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="room" id="Dining" value="Dining">Dining
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="room" id="Kitchen" value="Kitchen">Kitchen
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="room" id="Living_room" value="Living_room">Living room
+					  </label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="room" id="Outdoor" value="Outdoor">Outdoor
+					  </label>
+					</div>
+					<button type="submit" class="btn btn-default" id="submit" type="submit">
+						Edit
+					</button>
+					<script type="text/javascript">
+						$('#{{itemToEdit.room}}').prop("checked", true);
+					</script>
+				</div>
+			</form>
+		</div>
+	</div>
+{% endblock %}

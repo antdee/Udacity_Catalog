@@ -23,7 +23,7 @@ CLIENT_ID = json.loads(
 APPLICATION_NAME = "My Udacity Catalog App"
 
 # Connect to Database and create database session
-engine = create_engine('sqlite:///furniture.db')
+engine = create_engine('postgresql://catalog:catalog@localhost/furniture')
 Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)
@@ -413,4 +413,4 @@ def buyProduct(product_id):
 if __name__ == '__main__':
     app.secret_key = 'super_secret_key'
     app.debug = True
-    app.run(host='0.0.0.0', port=5000)
+    app.run()
